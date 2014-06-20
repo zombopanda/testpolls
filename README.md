@@ -6,5 +6,4 @@ MongoDB
 
 Install
 =======
-`npm i`
-`bower i`
+`npm i`, `bower i`
