@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  div(ng-app="softindex-admin")
+    div(ui-view)
+
+  div#polls-edit-template.hidden
+    div(ng-controller="EditController").edit-answer
+      div.row
+        div.col-md-6
+          span.btn.btn-primary.back(ng-click="back()") Назад
+
+      div.row
+        div.col-md-6
+          form(role="form")
+            div.form-group
+              label(for="inputQuestion") Вопрос
+              input.form-control(type="text" required="true" ng-model="poll.name"
+                id="inputQuestion" placeholder="введите вопрос")
+
+            div.form-group.answers
+              label(for="inputAnswer") Варианты ответа
+              input.form-control(type="text" id="inputAnswer" required="true" placeholder="введите ответ"
+                ng-repeat="variant in poll.variants track by $index" ng-model="poll.variants[$index]")
+              a(href="#" ng-click="addVariant(); $event.preventDefault()") Добавить вариант
+
+            button(type="submit" class="btn btn-default" ng-click="save()") Сохранить
+
+  div#polls-template.hidden
+    div(ng-controller="PollsController")
+      div.row.polls-list
+        div.col-md-6
+          span.btn.btn-success.create(ng-click="create()") создать
+          table.table.table-striped
+            tr(ng-repeat="poll in polls")
+              td.col-md-9
+                a(ui-sref="pollsEdit({pollId:poll._id})") {{poll.name}}
+
+              td
+                span.btn.btn-danger(ng-click="delete(poll)") удалить

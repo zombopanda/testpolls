@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/javascripts/components/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src="/socket.io/socket.io.js")
+    script(type="text/javascript", src="/javascripts/components/jquery/dist/jquery.js")
+    script(type="text/javascript", src="/javascripts/components/angular/angular.js")
+    script(type="text/javascript", src="/javascripts/components/angular-socket-io/socket.js")
+    script(type="text/javascript", src="/javascripts/components/highcharts-release/highcharts.js")
+    script(type="text/javascript", src="/javascripts/components/highcharts-ng/dist/highcharts-ng.js")
+    script(type="text/javascript", src="/javascripts/components/angular-ui-router/release/angular-ui-router.js")
+    script(type="text/javascript", src="/javascripts/app.js")
+    script(type="text/javascript", src="/javascripts/admin.js")
+  body
+    nav(id="header" class="navbar navbar-default" role="navigation")
+      div(class="container-fluid")
+        div(class="navbar-header")
+          a(class="navbar-brand" href="/") Polls
+        ul(class="nav navbar-nav navbar-right")
+          li
+            a(href="/admin") Edit polls
+
+    div(class="container" id="content")
+      block content

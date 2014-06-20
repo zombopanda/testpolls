@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  div(ng-app="softindex")
+    div.row.polls(ng-controller="PollsController")
+      div.col-md-6.poll(ng-repeat="poll in polls" ng-controller="PollController" ng-init="init(poll)")
+        highchart(config="chartConfig")
+        div.buttons
+          span.btn.btn-primary.variant(ng-repeat="variant in poll.variants" ng-click="vote(variant)") {{variant}}

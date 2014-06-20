@@ -1,0 +1,19 @@
+.poll .btn.variant {
+    margin: 0 10px;
+}
+
+.polls .buttons {
+    text-align: center;
+}
+
+.edit-answer .back {
+    margin-bottom: 20px;
+}
+
+.edit-answer .answers input {
+    margin-bottom: 10px;
+}
+
+.polls-list .create {
+    margin-bottom: 20px;
+}
